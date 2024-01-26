@@ -39,8 +39,8 @@ const Tasks = ({ tasks }: { tasks: Task[] }) => {
             scope="col"
             className="text-sm font-medium text-gray-900 px-6 py-4 text-left flex gap-2 items-center"
           >
-            Titles
-            <button onClick={sortByAlphabets}>
+            Title
+            <button type="button" onClick={sortByAlphabets}>
               {sort === "asc" ? (
                 <FaArrowDown />
               ) : (
