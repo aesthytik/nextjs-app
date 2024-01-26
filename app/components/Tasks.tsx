@@ -26,7 +26,7 @@ const Tasks = ({ tasks }: { tasks: Task[] }) => {
   });
 
   return (
-    <table className="min-w-full">
+    <table className="w-full">
       <thead className="border-b border-[1px] border-gray-500">
         <tr>
           <th
