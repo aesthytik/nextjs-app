@@ -1,4 +1,39 @@
-export default function Home() {
+import { gql } from "@apollo/client";
+import apolloClient from "@/utils/apolloClient";
+
+interface Task {
+  status: string;
+  description: string;
+  title: string;
+  distance: number;
+  is_active: boolean;
+  type: string;
+}
+
+const getTasks = gql`
+  query getTasks {
+    taskList {
+      status
+      description
+      title
+      distance
+      is_active
+      type
+    }
+  }
+`;
+
+async function getTasksFromServer() {
+  const data = await apolloClient.query({
+    query: getTasks,
+  });
+
+  return data.data.taskList;
+}
+
+export default async function Home() {
+  const tasks = await getTasksFromServer();
+  console.log(tasks);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="flex flex-col">
