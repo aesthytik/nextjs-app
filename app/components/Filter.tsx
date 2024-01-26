@@ -20,7 +20,7 @@ const Filter = () => {
       </label>
       <select
         name="status"
-        className="mt-1.5 p-4 w-full border-gray-500 text-gray-700 sm:text-sm"
+        className="mt-1.5 p-4 w-full border-gray-500 text-gray-700 sm:text-sm border-r-8 border-transparent px-4 text-sm outline-neutral-700"
         onChange={(e) => {
           router.push(`/status/${e.target.value}`);
         }}
