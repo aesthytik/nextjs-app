@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import TaskItem from "./TaskItem";
 import { Task } from "@/app/page";
@@ -17,19 +19,19 @@ const Tasks = ({ tasks }: { tasks: Task[] }) => {
             scope="col"
             className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
           >
-            First
+            Title
           </th>
           <th
             scope="col"
             className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
           >
-            Last
+            Description
           </th>
           <th
             scope="col"
             className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
           >
-            Handle
+            Status
           </th>
         </tr>
       </thead>

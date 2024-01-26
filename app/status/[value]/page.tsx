@@ -14,8 +14,8 @@ export interface Task {
 }
 
 const getTasks = gql`
-  query getTasks {
-    taskList {
+  query getTasks($filter: FilterFindManyTaskInput) {
+    taskList(filter: $filter) {
       _id
       status
       description
@@ -27,19 +27,25 @@ const getTasks = gql`
   }
 `;
 
-async function getTasksFromServer() {
+async function getTasksFromServer(value: string) {
   const data = await apolloClient.query({
     query: getTasks,
+    variables: {
+      filter: {
+        status: value || "NEW",
+      },
+    },
   });
 
   return data.data.taskList;
 }
 
-export default async function Home() {
-  const tasks: Task[] = await getTasksFromServer();
+export default async function Page({ params }: { params: { value: string } }) {
+  const tasks: Task[] = await getTasksFromServer(params.value);
+  console.log(params);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="flex flex-col">
+      <div className="flex flex-col w-full">
         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
             <div className="overflow-hidden w-full">
