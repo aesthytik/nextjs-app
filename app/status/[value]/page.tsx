@@ -43,7 +43,7 @@ async function getTasksFromServer(value: string) {
 export default async function Page({ params }: { params: { value: string } }) {
   const tasks: Task[] = await getTasksFromServer(params.value);
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between p-8 m:p-24">
       <div className="flex flex-col w-full">
         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
