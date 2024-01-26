@@ -42,7 +42,6 @@ async function getTasksFromServer(value: string) {
 
 export default async function Page({ params }: { params: { value: string } }) {
   const tasks: Task[] = await getTasksFromServer(params.value);
-  console.log(params);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="flex flex-col w-full">

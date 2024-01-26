@@ -16,14 +16,12 @@ const Filter = () => {
         htmlFor="HeadlineAct"
         className="block text-sm font-medium text-gray-900"
       >
-        Status
+        Choose Status
       </label>
-
       <select
         name="status"
         className="mt-1.5 p-4 w-full border-gray-500 text-gray-700 sm:text-sm"
         onChange={(e) => {
-          console.log(e.target.value);
           router.push(`/status/${e.target.value}`);
         }}
       >
